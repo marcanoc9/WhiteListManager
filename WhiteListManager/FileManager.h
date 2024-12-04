@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "Entity.h"
-
+#include <string_view>
 class FileManager {
 public:
     static void writeToFile(const std::vector<Entity>& entities, const std::string& filename);

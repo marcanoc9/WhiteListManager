@@ -1,6 +1,7 @@
 #include "FileManager.h"
 #include <fstream>
 #include <iostream>
+#include <string_view>
 
 void FileManager::writeToFile(const std::vector<Entity>& entities, const std::string& filename) {
     std::ofstream file(filename);
@@ -24,7 +25,7 @@ void FileManager::readFromFile(std::vector<Entity>& entities, const std::string&
 
     std::string name;
     std::string type;
-    bool whiteblack;
+    WBlisted whiteblack;
     while (file >> name >> type) {
         entities.push_back(Entity(name, type, whiteblack));
     }

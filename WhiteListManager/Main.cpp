@@ -3,11 +3,14 @@
 #include "Entity.h"
 #include "WhiteBlackList.h"
 #include "FileManager.h"
+#include <string_view>
+
+
 
 int main() {
     std::vector<Entity> entities;
     std::string filename = "WhiteBlackList.txt";
-    std::cout << std::boolalpha;
+    
     int choice;
     do {
         std::cout << "\nMenu:\n";
@@ -26,22 +29,20 @@ int main() {
         case 1: {
             std::string name;
             std::string type;
-            bool whiteblack;
+            WBlisted whiteblack;
             std::cout << "Enter Entity Name: ";
             std::cin >> name;
             std::cout << "Enter Type: ";
             std::cin >> type;
-            std::cout << "Enter Status (1 White, 0 Black): ";
-            std::cin >> whiteblack;
             entities.push_back(Entity(name, type, whiteblack));
             break;
         }
         case 2: {
             std::string name;
-            bool delta;
+            std::string delta;
             std::cout << "Enter Entity Name: ";
             std::cin >> name;
-            std::cout << "Enter Status (white 1, black 0): ";
+            std::cout << "Enter Status (whitelisted or blacklisted): ";
             std::cin >> delta;
             for (Entity& entity : entities) {
                 if (entity.getName() == name) {
@@ -61,7 +62,7 @@ int main() {
         case 4: {
             std::cout << "\nWhite Listed Entities:\n";
             for (const Entity& entity : entities) {
-                if (entity.getWhiteBlack() == 1) {
+                if (entity.getWhiteBlack() == "whitelisted") {
                     entity.display();
                 }
             }
