@@ -10,7 +10,7 @@ void FileManager::writeToFile(const std::vector<Entity>& entities, const std::st
     }
 
     for (const Entity& entity : entities) {
-        file << entity.getName() << " " << entity.getType() << "\n";
+        file << entity.getName() << " " << entity.getType() << " " << entity.getWhiteBlack() << "\n";
     }
     file.close();
 }
